@@ -1,0 +1,207 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+  Nepa Invest — Dark luxury design system.
+  Brand DNA: deep navy, charcoal, metallic gold, ivory.
+  Inspired directly by the gold-on-navy shield logo.
+*/
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-display: var(--font-display);
+
+  /* Brand scale */
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-charcoal: var(--charcoal);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-gold-bright: var(--gold-bright);
+  --color-ivory: var(--ivory);
+  --color-beige: var(--beige);
+
+  /* shadcn tokens */
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --shadow-gold: 0 0 0 1px color-mix(in oklab, var(--gold) 28%, transparent),
+    0 22px 60px -28px color-mix(in oklab, var(--gold) 45%, transparent);
+}
+
+:root {
+  /* Brand palette */
+  --navy-deep: oklch(0.18 0.035 256);
+  --navy: oklch(0.22 0.04 256);
+  --charcoal: oklch(0.27 0.025 256);
+  --gold: oklch(0.78 0.11 84);
+  --gold-soft: oklch(0.7 0.09 80);
+  --gold-bright: oklch(0.86 0.12 88);
+  --ivory: oklch(0.96 0.012 90);
+  --beige: oklch(0.82 0.03 80);
+
+  --radius: 0.75rem;
+
+  /* Site theme — single dark luxury theme */
+  --background: oklch(0.16 0.032 256);
+  --foreground: oklch(0.95 0.01 90);
+
+  --card: oklch(0.21 0.035 256);
+  --card-foreground: oklch(0.95 0.01 90);
+  --popover: oklch(0.19 0.035 256);
+  --popover-foreground: oklch(0.95 0.01 90);
+
+  --primary: var(--gold);
+  --primary-foreground: oklch(0.18 0.035 256);
+  --secondary: oklch(0.26 0.03 256);
+  --secondary-foreground: oklch(0.95 0.01 90);
+
+  --muted: oklch(0.24 0.03 256);
+  --muted-foreground: oklch(0.72 0.02 90);
+
+  --accent: oklch(0.28 0.035 256);
+  --accent-foreground: oklch(0.96 0.012 90);
+
+  --destructive: oklch(0.62 0.2 25);
+
+  --border: oklch(0.85 0.05 85 / 12%);
+  --input: oklch(0.85 0.05 85 / 16%);
+  --ring: var(--gold);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "ss01", "cv01";
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--gold) 30%, transparent);
+    color: var(--ivory);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Refined focus ring for accessibility */
+  :focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* Subtle architectural grid overlay */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, var(--gold) 10%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--gold) 10%, transparent) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* Gold gradient text for accents */
+  .text-gold-gradient {
+    background: linear-gradient(
+      100deg,
+      var(--gold-soft) 0%,
+      var(--gold-bright) 45%,
+      var(--gold-soft) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Hairline gold divider */
+  .rule-gold {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      color-mix(in oklab, var(--gold) 60%, transparent),
+      transparent
+    );
+  }
+
+  /* Glass surface used by header + cards */
+  .glass {
+    background: color-mix(in oklab, var(--navy) 70%, transparent);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+  }
+}
+
+/* Slow ambient gold aura used behind hero / CTA */
+@keyframes aura-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate3d(2%, -3%, 0) scale(1.08);
+    opacity: 0.8;
+  }
+}
+
+.animate-aura {
+  animation: aura-drift 16s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-aura {
+    animation: none;
+  }
+}
