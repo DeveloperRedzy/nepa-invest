@@ -56,10 +56,10 @@ export const metadata: Metadata = {
       "Investicijska kompanija usmjerena na akviziciju, razvoj i prodaju stambenih i poslovnih nekretnina na lokacijama s visokim potencijalom rasta.",
     images: [
       {
-        url: "/logo/nepa-invest-logo.png",
-        width: 1254,
-        height: 1254,
-        alt: "Nepa Invest",
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Nepa Invest — Investicije i razvoj nekretnina",
       },
     ],
   },
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     title: "Nepa Invest | Investicije i razvoj nekretnina",
     description:
       "Strateški razvoj stambenih i poslovnih nekretnina s fokusom na dugoročnu vrijednost.",
-    images: ["/logo/nepa-invest-logo.png"],
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
