@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { siteUrl } from "@/lib/site-data";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -21,10 +22,8 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const SITE_URL = "https://www.nepainvest.com";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Nepa Invest | Investicije i razvoj nekretnina",
     template: "%s | Nepa Invest",
@@ -50,7 +49,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "bs_BA",
-    url: SITE_URL,
+    url: siteUrl,
     siteName: "Nepa Invest",
     title: "Nepa Invest | Investicije i razvoj nekretnina",
     description:

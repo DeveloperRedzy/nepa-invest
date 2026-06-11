@@ -58,3 +58,28 @@ komponentama.
 
 Brand tokeni (navy / charcoal / zlatna / ivory) definisani su u
 [`src/app/globals.css`](src/app/globals.css) i izvedeni su iz logotipa.
+
+## Deploy (Vercel)
+
+Projekat je zero-config za Vercel (Next.js). Opcije:
+
+- **GitHub integracija (preporučeno):** importujte repo na
+  [vercel.com/new](https://vercel.com/new) — svaki push na `main` automatski
+  deployuje produkciju, a svaki pull request dobija preview URL.
+- **Vercel CLI:**
+  ```bash
+  vercel login      # interaktivno
+  vercel link       # poveži folder s Vercel projektom
+  vercel --prod     # produkcijski deploy
+  ```
+
+### Varijable okruženja
+
+| Varijabla | Opis |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Kanonski URL sajta (npr. `https://www.nepainvest.com`). Koristi se za metadata, OpenGraph, `robots.txt`, `sitemap.xml` i JSON-LD. |
+
+Ako varijabla nije postavljena, koristi se Vercel produkcijski domen
+(`VERCEL_PROJECT_PRODUCTION_URL`), a kao posljednja opcija
+`https://www.nepainvest.com`. Postavite `NEXT_PUBLIC_SITE_URL` čim povežete
+vlastiti domen.

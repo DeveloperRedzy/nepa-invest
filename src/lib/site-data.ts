@@ -21,6 +21,18 @@ import {
 /*  Brand                                                                      */
 /* -------------------------------------------------------------------------- */
 
+/**
+ * Canonical site URL, resolved in priority order:
+ *   1. NEXT_PUBLIC_SITE_URL — set this once a custom domain is attached.
+ *   2. VERCEL_PROJECT_PRODUCTION_URL — the stable Vercel production domain.
+ *   3. Fallback placeholder domain.
+ */
+export const siteUrl: string =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "https://www.nepainvest.com");
+
 export const site = {
   name: "Nepa Invest",
   tagline: "Investicije i razvoj nekretnina",

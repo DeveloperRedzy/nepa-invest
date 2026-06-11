@@ -8,18 +8,16 @@ import { AdvantagesSection } from "@/components/sections/advantages-section";
 import { ProjectsExhibitionSection } from "@/components/sections/projects-exhibition-section";
 import { CtaSection } from "@/components/sections/cta-section";
 import { ContactSection } from "@/components/sections/contact-section";
-import { site } from "@/lib/site-data";
-
-const SITE_URL = "https://www.nepainvest.com";
+import { site, siteUrl } from "@/lib/site-data";
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
   name: site.name,
   description: site.description,
-  url: SITE_URL,
-  logo: `${SITE_URL}/logo/nepa-invest-logo.png`,
-  image: `${SITE_URL}/logo/nepa-invest-logo.png`,
+  url: siteUrl,
+  logo: `${siteUrl}/logo/nepa-invest-logo.png`,
+  image: `${siteUrl}/logo/nepa-invest-logo.png`,
   email: site.email,
   telephone: site.phone,
   areaServed: site.location,

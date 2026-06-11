@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
 
-const SITE_URL = "https://www.nepainvest.com";
+import { siteUrl } from "@/lib/site-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: SITE_URL,
+      url: siteUrl,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
